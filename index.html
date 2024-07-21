@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>SASS Documentation Page</title>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="navbar-position">
+            <h2 class="nav__header"><span>S</span>ass Documentation</h2>
+            <h3 class="nav__content"><i>Contents</i></h3>
+        
+            <div class="nav-list">
+                <a href="#introduction" class="nav-link">Introduction</a>
+                <a href="#installation" class="nav-link">Installation</a>
+                <a href="#basic_syntax" class="nav-link">Basic Syntax</a>
+                <a href="#nesting" class="nav-link">Nesting</a>
+                <a href="#variables" class="nav-link">Variables</a>
+                <a href="#partials_and_import" class="nav-link">Partials and Import</a>
+                <a href="#mixins" class="nav-link">Mixins</a>
+                <a href="#inheritance" class="nav-link">Inheritance</a>
+                <a href="#operators" class="nav-link">Operators</a>
+                <a href="#functions" class="nav-link">Functions</a>
+                <a href="#comments" class="nav-link">Comments</a>
+                <a href="#compiling_sass" class="nav-link">Compiling Sass</a>
+            </div>
+        </div>
+        
+    </nav>
+    <main id='main-doc'>
+        <section class="main-section" id="introduction">
+            <h3>Introduction</h3>
+            <p>Sass (Syntactically Awesome Style Sheets) is a preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets (CSS). SassScript is the scripting language itself. Sass consists of two syntaxes. The original syntax, called "the indented syntax," uses a syntax similar to Haml. It uses indentation to separate code blocks and newline characters to separate rules. The newer syntax, "SCSS," uses block formatting like that of CSS.</p>
+            <ul>
+                <li><span>Enhances CSS:</span> Sass provides advanced features that allow you to write CSS more efficiently.</li>
+                <li><span>Nesting:</span> You can nest your CSS selectors in a way that follows the same visual hierarchy of your HTML.</li>
+                <li><span>Variables:</span> Use variables to store CSS values that you reuse throughout your stylesheet.</li>
+                <li><span>Mixins:</span> Create reusable chunks of CSS code with mixins.</li>
+                <li><span>Inheritance:</span> Share a set of CSS properties from one selector to another using inheritance.</li>
+            </ul>
+        </section>
+
+        <section class="main-section" id="installation">
+            <h3>Installation</h3>
+            <h4>Using npm</h4>
+            <p>To install Sass via npm, use the following command:</p>
+            <pre><code>npm install -g sass</code></pre>
+            <h4>Using RubyGems</h4>
+            <p>To install Sass via RubyGems, use the following command:</p>
+            <pre><code>gem install sass</code></pre>
+            <h4>Using Homebrew</h4>
+            <p>To install Sass via Homebrew, use the following command:</p>
+            <pre><code>brew install sass</code></pre>
+            <h4>Using a Package Manager</h4>
+            <p>Sass can also be installed using various package managers, such as Yarn:</p>
+            <pre><code>yarn global add sass</code></pre>
+
+        </section>
+
+        <section class="main-section" id="basic_syntax">
+            <h3>Basic Syntax</h3>
+            <p>Sass offers two syntaxes: SCSS and the indented syntax.</p>
+            <h4>SCSS Syntax</h4>
+            <pre><code>
+    $primary-color: #333;
+
+    body {
+      color: $primary-color;
+    }
+            </code></pre>
+
+            <h4>Indented Syntax</h4>
+            <pre><code>
+    $primary-color: #333
+
+    body
+      color: $primary-color
+            </code></pre>
+        </section>
+
+        <section class="main-section" id="nesting">
+            <h3>Nesting</h3>
+            <p>Sass allows you to nest your CSS selectors in a way that follows the same visual hierarchy of your HTML.</p>
+            <pre><code>
+    nav {
+        ul {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+        }
+      
+        li { display: inline-block; }
+      
+        a {
+          display: block;
+          padding: 6px 12px;
+          text-decoration: none;
+        }
+      }
+            </code></pre>
+        </section>
+
+        <section class="main-section" id="variables">
+            <h3>Variables</h3>
+            <p>Variables make it possible to reduce repetition and keep your code DRY.</p>
+            <pre><code>
+    $font-stack: Helvetica, sans-serif;
+    $primary-color: #333;
+    
+    body {
+    font: 100% $font-stack;
+    color: $primary-color;
+    }
+            </code></pre>
+            </pre>
+        </section>
+
+        <section class="main-section" id="partials_and_import">
+            <h3>Partials & Import</h3>
+            <p>Partials allow you to create small Sass files that contain snippets of CSS that can be included in other Sass files. A partial is created by prefixing the filename with an underscore.</p>
+            <pre><code>
+    // _reset.scss
+    body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+    // main.scss
+    @import 'reset';
+
+    .container {
+    width: 100%;
+    }
+            </code></pre>
+        </section>
+
+        <section class="main-section" id="mixins">
+            <h3>Mixins</h3>
+            <p>Mixins allow you to create reusable chunks of code.</p>
+            <pre><code>
+    @mixin border-radius($radius) {
+        -webkit-border-radius: $radius;
+           -moz-border-radius: $radius;
+            -ms-border-radius: $radius;
+                border-radius: $radius;
+      }
+      
+      .box { @include border-radius(10px); }
+            </code></pre>
+        </section>
+
+        <section class="main-section" id="inheritance">
+            <h3>Inheritance</h3>
+            <p>Inheritance allows you to share a set of CSS properties from one selector to another.</p>
+            <pre>
+                <code>
+    .message {
+        border: 1px solid #ccc;
+        padding: 10px;
+        color: #333;
+      }
+      
+      .success { @extend .message; border-color: green; }
+      .error   { @extend .message; border-color: red; }
+      .warning  @extend .message; border-color: yellow; 
+                </code>
+            </pre>
+        </section>
+
+        <section class="main-section" id="operators">
+            <h3>Operators</h3>
+            <p>Sass has several built-in operators for common mathematical operations, including +, -, *, /, and %.</p>
+            <pre>
+                <code>
+    .container {
+        width: 100% - 20px;
+      }
+      
+      .sidebar {
+        width: 300px / 960px * 100%;
+      }
+                </code>
+            </pre>
+        </section>
+
+        <section class="main-section" id="functions">
+            <h3>Functions</h3>
+            <p>Sass provides built-in functions for manipulating colors, numbers, strings, lists, and maps.</p>
+            <pre>
+                <code>
+    $color: #4D926F;
+
+    .button {
+    color: lighten($color, 20%);
+    background-color: darken($color, 20%);
+    }
+                </code>
+            </pre>
+        </section>
+
+        <section class="main-section" id="comments">
+            <h3>Comments</h3>
+            <p>Sass supports both standard CSS comments (/* comment */) and inline comments (// comment).</p>
+            <pre>
+                <code>
+    /* This is a standard comment */
+    body {
+    font-family: sans-serif; // This is an inline comment
+    }
+                </code>
+            </pre>
+        </section>
+
+        <section class="main-section" id="compiling_sass">
+            <h3>Compiling SASS</h3>
+            <p>To compile Sass to CSS, you can use the command line tool provided by Sass.</p>
+            <pre>
+                <code>
+    sass input.scss output.css
+                </code>
+            </pre>
+
+            <p>You can also watch a directory for changes and automatically compile the Sass files to CSS:</p>
+            <pre>
+                <code>
+    sass --watch input.scss:output.css
+                </code>
+            </pre>
+        </section>
+    </main>
+
+</body>
+</html>

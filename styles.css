@@ -1,0 +1,167 @@
+/* =================== GOOGLE FONT ==================== */
+@import url('https://fonts.googleapis.com/css2?family=Allison&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Ga+Maamli&family=Kalnia+Glaze:wght@100..700&display=swap');
+
+
+/* =================== BASIC RESET =================== */
+
+*,
+::before,
+::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: row; /* added */
+    width: 100vw;
+    min-height: 100vh;
+}
+
+h3{
+    font-family: "Ga Maamli", sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 3px;
+    color: rgb(0, 0, 0, 0.7);
+}
+
+h4{
+    color: rgb(0, 0, 0, 0.7);
+    letter-spacing: 1px;
+}
+
+/* =================== NAVBAR =================== */
+
+#navbar{
+    width: 270px;
+    height: 100vh;
+    position: relative;
+    /* border: 5px solid red; */
+}
+
+.navbar-position{
+    position: fixed;
+    height: 100%;
+    width: inherit;
+    overflow: scroll;
+    border-right: 3px solid rgb(140, 140, 140, 0.7);
+}
+
+.nav__header{
+    font-size: 2.5rem;
+    color: rgb(255, 0, 212);
+    padding-inline: 1rem;
+    font-family: "Allison", cursive;
+}
+
+.nav__content{
+    font-size: 1.35rem;
+    padding-left: 1.5rem;
+    padding-top: 1.5rem;
+}
+
+.nav__header span{
+    font-size: 5rem;
+}
+
+.nav-list{
+    display: flex;
+    flex-direction: column;
+    margin-block: .5rem;
+    width: 100%;
+}
+
+.nav-link{
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
+    width: 100%;
+    padding: 1.2rem 0 1rem 2rem;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(77, 78, 83,0.8);
+    font-weight: 500;
+    font-size: .9rem;
+    letter-spacing: .8px;
+}
+a:hover{
+    color: #f1f1f1;
+    font-size: 1rem;
+    background-color: rgb(21, 115, 84, 0.9);
+
+}
+
+/* ====================== MAIN ====================== */
+
+#main-doc{
+    flex: 1;
+    padding-inline: 3rem;
+    overflow: scroll;
+}
+
+.main-section{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+    margin-top: 4rem;
+    padding: 1rem;
+}
+
+ul{
+    padding-left: 3rem;
+}
+
+ul li{
+    font-size: .9rem;
+    color: rgb(0, 0, 0, 0.7);
+    line-height: 2rem;
+}
+
+li span{
+    font-weight: 700;
+    color: rgb(0, 0, 0, 0.8);
+
+}
+
+p{
+    font-size: .9rem;
+    line-height: 1.8rem;
+    text-align: justify;
+}
+
+/* =========== CODE =========== */
+pre{
+    background-color: rgb(205, 202, 202, 0.4);
+    border: 1px solid rgb(205, 202, 202);
+    color: rgb(0, 0, 0, 0.8);
+    padding: .5rem;
+    overflow: auto;
+}
+code{
+    /* letter-spacing: 1px; */
+    line-height: 1rem;
+    color: rgb(234, 72, 72);
+
+}
+
+/* ================ SMALLER SCREEN ============== */
+
+@media screen and (max-width: 720px){
+    #main-doc{
+        padding-inline: 1rem;
+    }
+    #navbar{
+        width: 180px;
+    }
+}
+
+/* @media screen and (max-width: 780px){
+    #navbar{
+        width: 240px;
+    }
+} */
